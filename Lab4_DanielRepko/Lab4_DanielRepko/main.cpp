@@ -1,3 +1,7 @@
+/*
+	Name: Daniel Repko
+	Lab 4
+*/
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
