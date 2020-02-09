@@ -162,6 +162,10 @@
     <ClCompile Include="CApp_OnRender.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="alien.bmp" />
+    <Image Include="cannon.bmp" />
+    <Image Include="cannonball.bmp" />
+    <Image Include="fireball.bmp" />
     <Image Include="hts.bmp" />
   </ItemGroup>
   <ItemGroup>

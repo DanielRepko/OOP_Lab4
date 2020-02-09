@@ -14,18 +14,18 @@ CApp::CApp() {
 
 
 int
-CApp::LoadSprite(char *file)
+CApp::LoadSprite(char *file, SDL_Texture *&spriteToPopulate, SDL_Renderer *renderer, int widthIndex, int heightIndex)
 {
     SDL_Surface *temp;
 
     /* Load the sprite image */
     temp = SDL_LoadBMP(file);
     if (temp == NULL) {
-        //fprintf(stderr, "Couldn't load %s: %s", file, SDL_GetError());
+        fprintf(stderr, "Couldn't load %s: %s", file, SDL_GetError());
         return (-1);
     }
-    sprite_w = temp->w;
-    sprite_h = temp->h;
+	sprite_w[widthIndex] = temp->w;
+	sprite_h[heightIndex] = temp->h;
 
     /* Set transparent pixel as the pixel at (0,0) */
     if (temp->format->palette) {
@@ -50,8 +50,8 @@ CApp::LoadSprite(char *file)
     }
 
     /* Create textures from the image */
-    sprite = SDL_CreateTextureFromSurface(renderer, temp);
-    if (!sprite) {
+    spriteToPopulate = SDL_CreateTextureFromSurface(renderer, temp);
+    if (!spriteToPopulate) {
         //fprintf(stderr, "Couldn't create texture: %s\n", SDL_GetError());
         SDL_FreeSurface(temp);
         return (-1);
@@ -76,6 +76,12 @@ int CApp::OnExecute() {
         while(SDL_PollEvent(&Event)) {
             OnEvent(&Event);
         }
+
+		//move the cannon | put this here instead of in OnEvent to prevent jittery movement
+		if (joy)
+		{
+			positions[1].y += SDL_JoystickGetAxis(joy, 1) / 6000;
+		}
 
         OnLoop();
         OnRender();

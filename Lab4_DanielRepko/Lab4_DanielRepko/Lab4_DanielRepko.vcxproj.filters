@@ -38,6 +38,18 @@
     <Image Include="hts.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="alien.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="cannon.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="cannonball.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="fireball.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="SDL2.dll">
