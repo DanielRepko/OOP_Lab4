@@ -160,7 +160,6 @@
     <ClCompile Include="CApp_OnInit.cpp" />
     <ClCompile Include="CApp_OnLoop.cpp" />
     <ClCompile Include="CApp_OnRender.cpp" />
-    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="hts.bmp" />
